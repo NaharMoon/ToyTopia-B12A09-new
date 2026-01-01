@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth, provider } from '../firebase/firebase.config';
-import { useLocation, useNavigate } from 'react-router';
+import { Link, useLocation, useNavigate } from 'react-router';
 
 const LoginPage = () => {
     const location = useLocation();
@@ -82,7 +82,13 @@ const LoginPage = () => {
                                     required
                                 />
 
-                                <div><a className="link link-hover">Forgot password?</a></div>
+                                <div>
+                                    <Link to={`/auth/forgot-password?email=${encodeURIComponent(email)}`}
+                                        className="link link-hover"
+                                    >
+                                        Forgot password?
+                                    </Link>
+                                </div>
                                 <button className="btn btn-neutral mt-4">Login</button>
                             </fieldset>
                         </form>
