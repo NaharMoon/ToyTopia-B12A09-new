@@ -3,14 +3,33 @@ import React, { useState } from 'react';
 import { auth } from '../firebase/firebase.config';
 
 const RegisterPage = () => {
-    
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [error,setError] = useState('');
     const userData = {
         email,
         password,
     }
     console.log(userData);
+
+    const handlePasswordOnChange = (e) => {
+        const value = e.target.value;
+        setPassword(value);
+
+        if (value.length < 6) {
+            setError("Password must be at least 6 characters");
+        }
+        else if (!/[A-Z]/.test(value)) {
+            setError("Password must contain an uppercase letter");
+        }
+        else if (!/[a-z]/.test(value)) {
+            setError("Password must contain a lowercase letter");
+        }
+        else {
+            setError(""); // সব ঠিক
+        }
+    };
 
     const handleRegister = (e) => {
         e.preventDefault();
@@ -19,14 +38,19 @@ const RegisterPage = () => {
         const password = e.target.password.value;
         console.log("Email: ", email, "\nPassword: ", password);
 
-        createUserWithEmailAndPassword(auth,email,password)
-        .then((result)=>{
-            const user = result.user;
-            console.log("Register successed: ",user);
-        })
-        .catch((error) => {
-            console.log(error.message);
-        })
+        if(error){
+            alert("Password must contain uppercase, lowercase and at least 6 characters");
+            return;
+        }
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                const user = result.user;
+                console.log("Register successed: ", user);
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
     }
 
     return (
@@ -62,9 +86,10 @@ const RegisterPage = () => {
                                     placeholder="Password"
                                     name='password'
                                     value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    onChange={handlePasswordOnChange}
                                     required
                                 />
+                                {error && <p>{error}</p>}
                                 <div><a className="link link-hover">Forgot password?</a></div>
                                 <button className="btn btn-neutral mt-4">Register</button>
                             </fieldset>

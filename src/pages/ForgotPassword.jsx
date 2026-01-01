@@ -43,19 +43,6 @@ const ForgotPassword = () => {
                             onChange={(e) => setEmail(e.target.value)}
                             required
                         />
-                        {/* password
-                        <label className="label">Password</label>
-                        <input
-                            type="password"
-                            className="input"
-                            placeholder="Password"
-                            name='password'
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                            required
-                        /> */}
-
-                        {/* <div><a className="link link-hover">Forgot password?</a></div> */}
                         <button className="btn btn-neutral mt-4">Reset</button>
                     </fieldset>
                 </form>
