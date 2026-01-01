@@ -6,7 +6,8 @@ const RegisterPage = () => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [error,setError] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState('');
     const userData = {
         email,
         password,
@@ -38,7 +39,7 @@ const RegisterPage = () => {
         const password = e.target.password.value;
         console.log("Email: ", email, "\nPassword: ", password);
 
-        if(error){
+        if (error) {
             alert("Password must contain uppercase, lowercase and at least 6 characters");
             return;
         }
@@ -81,7 +82,7 @@ const RegisterPage = () => {
                                 {/* password */}
                                 <label className="label">Password</label>
                                 <input
-                                    type="password"
+                                    type={showPassword ? "text" : "password"}
                                     className="input"
                                     placeholder="Password"
                                     name='password'
@@ -89,6 +90,12 @@ const RegisterPage = () => {
                                     onChange={handlePasswordOnChange}
                                     required
                                 />
+                                <button
+                                    type='button'
+                                    className='btn'
+                                    onClick={() => setShowPassword(!showPassword)}>
+                                    {showPassword ? "hide" : "show"}
+                                </button>
                                 {error && <p>{error}</p>}
                                 <div><a className="link link-hover">Forgot password?</a></div>
                                 <button className="btn btn-neutral mt-4">Register</button>
