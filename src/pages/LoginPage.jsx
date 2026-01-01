@@ -1,6 +1,6 @@
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
 import React, { useState } from 'react';
-import { auth } from '../firebase/firebase.config';
+import { auth, provider } from '../firebase/firebase.config';
 import { useLocation, useNavigate } from 'react-router';
 
 const LoginPage = () => {
@@ -23,15 +23,26 @@ const LoginPage = () => {
         const password = e.target.password.value;
         console.log("Email: ", email, "\nPassword: ", password);
 
-        signInWithEmailAndPassword(auth,email,password)
-        .then((result) => {
-            const user = result.user;
-            console.log("Login successed: ",user);
-            navigate(`${location.state? location.state : "/"}`)
-        })
-        .catch((error)=>{
-            console.log(error.message);
-        })
+        signInWithEmailAndPassword(auth, email, password)
+            .then((result) => {
+                const user = result.user;
+                console.log("Login successed: ", user);
+                navigate(`${location.state ? location.state : "/"}`)
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
+    }
+    const handleGoogleSignIn = () => {
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                const user = result.user;
+                console.log("Google User: ", user);
+                navigate(`${location.state ? location.state : "/"}`);
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
     }
 
     return (
@@ -75,6 +86,12 @@ const LoginPage = () => {
                                 <button className="btn btn-neutral mt-4">Login</button>
                             </fieldset>
                         </form>
+                        <button
+                            onClick={handleGoogleSignIn}
+                            className="btn btn-neutral mt-4"
+                        >
+                            Continue With Google
+                        </button>
                     </div>
                 </div>
             </div>
