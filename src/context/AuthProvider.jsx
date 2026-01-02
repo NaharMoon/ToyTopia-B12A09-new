@@ -1,8 +1,9 @@
-import { onAuthStateChanged, signInWithPopup } from 'firebase/auth';
+import { onAuthStateChanged, signInWithPopup,  } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
 import { auth, provider } from '../firebase/firebase.config';
 import { useLocation, useNavigate } from 'react-router';
+// import { toast } from 'react-toastify';
 
 const AuthProvider = ({ children }) => {
 
@@ -26,6 +27,24 @@ const AuthProvider = ({ children }) => {
         })
     }, []);
 
+    // const handleUpdateProfile = (e,profile) => {
+    //     e.preventDefault();
+
+    //     updateProfile(auth.currentUser, profile)
+    //         .then(() => {
+    //             setUserData({
+    //                 ...userData,
+    //                 displayName: auth.currentUser.displayName,
+    //                 photoURL: auth.currentUser.photoURL,
+    //             });
+    //             toast.success("Profile Updated.");
+    //             console.log("Profile Updated.");
+    //         })
+    //         .catch((error) => {
+    //             console.log(error.message);
+    //         })
+    // };
+
     const handleGoogleSignIn = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
@@ -41,7 +60,7 @@ const AuthProvider = ({ children }) => {
     return (
         <div>
             <AuthContext
-                value={{ userData, setUserData, loading, handleGoogleSignIn }}>
+                value={{ userData, setUserData, loading, handleGoogleSignIn, navigate, location }}>
                 {children}
             </AuthContext>
         </div>

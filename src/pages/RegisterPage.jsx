@@ -5,17 +5,25 @@ import { Link } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 
 const RegisterPage = () => {
-
-    const { handleGoogleSignIn } = useContext(AuthContext);
+    
+    const { handleGoogleSignIn, navigate, location } = useContext(AuthContext);
+    console.log(location);
+    const [name, setName] = useState('');
+    const [photoURL, setPhotoURL] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState('');
-    const userData = {
+
+    const userinfo = {
         email,
         password,
     }
-    console.log(userData);
+    const profile = {
+        displayName: name,
+        photoURL: photoURL,
+    }
+    console.log("UserInfo: ", userinfo, "\nProfile: ", profile);
 
     const handlePasswordOnChange = (e) => {
         const value = e.target.value;
@@ -51,11 +59,14 @@ const RegisterPage = () => {
             .then((result) => {
                 const user = result.user;
                 console.log("Register successed: ", user);
+                navigate(`${location.state ? location.state : "/"}`);
             })
             .catch((error) => {
                 console.log(error.message);
-            })
-    }
+            });
+
+        // handleUpdateProfile(e,profile);
+    };
 
     return (
         <div>
@@ -119,16 +130,16 @@ const RegisterPage = () => {
                                     className="input"
                                     placeholder="Photo URL"
                                     name='photo'
-                                    // value={photoURL}
+                                    value={photoURL}
                                     onChange={(e) => setPhotoURL(e.target.value)}
                                 />
 
                                 <button className="btn btn-neutral mt-4">Register</button>
-                                <p>Already have an account? <Link to={"/auth/login"}>Login</Link></p>
+                                <p>Already have an account? <Link to={"/auth/login"}>~Login</Link></p>
 
                             </fieldset>
                         </form>
-                        <p>______________or continue with______________</p>
+                        <p>___________or continue with___________</p>
                         <button
                             onClick={handleGoogleSignIn}
                             className="btn btn-neutral mt-4"

@@ -1,6 +1,6 @@
 import { sendPasswordResetEmail } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router';
+import { Link, useSearchParams } from 'react-router';
 import { auth } from '../firebase/firebase.config';
 
 const ForgotPassword = () => {
@@ -44,6 +44,7 @@ const ForgotPassword = () => {
                             required
                         />
                         <button className="btn btn-neutral mt-4">Reset</button>
+                        <p>Back to <Link to={"/auth/login"}>~Login</Link></p>
                     </fieldset>
                 </form>
             </div>

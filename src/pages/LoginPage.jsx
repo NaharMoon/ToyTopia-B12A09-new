@@ -1,11 +1,11 @@
-import { signInWithEmailAndPassword,  } from 'firebase/auth';
+import { signInWithEmailAndPassword, } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import { auth,  } from '../firebase/firebase.config';
+import { auth, } from '../firebase/firebase.config';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
 
 const LoginPage = () => {
-    const {handleGoogleSignIn} = useContext(AuthContext);
+    const { handleGoogleSignIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     console.log(location);
@@ -92,13 +92,15 @@ const LoginPage = () => {
                                     </Link>
                                 </div>
                                 <button className="btn btn-neutral mt-4">Login</button>
+                                <p>Don't have an account? <Link to={"/auth/register"}>~Register</Link></p>
                             </fieldset>
                         </form>
+                        <p>___________or continue with___________</p>
                         <button
                             onClick={handleGoogleSignIn}
                             className="btn btn-neutral mt-4"
                         >
-                            Continue With Google
+                            LogIn With Google
                         </button>
                     </div>
                 </div>
