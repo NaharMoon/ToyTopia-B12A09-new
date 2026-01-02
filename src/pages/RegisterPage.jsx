@@ -1,10 +1,12 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { auth } from '../firebase/firebase.config';
 import { Link } from 'react-router';
+import { AuthContext } from '../context/AuthContext';
 
 const RegisterPage = () => {
 
+    const { handleGoogleSignIn } = useContext(AuthContext);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
@@ -123,15 +125,16 @@ const RegisterPage = () => {
 
                                 <button className="btn btn-neutral mt-4">Register</button>
                                 <p>Already have an account? <Link to={"/auth/login"}>Login</Link></p>
-                                <p>______________or continue with______________</p>
-                                <button
-                                    // onClick={handleGoogleSignIn}
-                                    className="btn btn-neutral mt-4"
-                                >
-                                    LogIn With Google
-                                </button>
+
                             </fieldset>
                         </form>
+                        <p>______________or continue with______________</p>
+                        <button
+                            onClick={handleGoogleSignIn}
+                            className="btn btn-neutral mt-4"
+                        >
+                            LogIn With Google
+                        </button>
                     </div>
                 </div>
             </div>

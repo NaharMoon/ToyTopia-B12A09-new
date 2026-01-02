@@ -1,9 +1,11 @@
-import { signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth';
-import React, { useState } from 'react';
-import { auth, provider } from '../firebase/firebase.config';
+import { signInWithEmailAndPassword,  } from 'firebase/auth';
+import React, { useContext, useState } from 'react';
+import { auth,  } from '../firebase/firebase.config';
 import { Link, useLocation, useNavigate } from 'react-router';
+import { AuthContext } from '../context/AuthContext';
 
 const LoginPage = () => {
+    const {handleGoogleSignIn} = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
     console.log(location);
@@ -33,17 +35,17 @@ const LoginPage = () => {
                 console.log(error.message);
             })
     }
-    const handleGoogleSignIn = () => {
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                const user = result.user;
-                console.log("Google User: ", user);
-                navigate(`${location.state ? location.state : "/"}`);
-            })
-            .catch((error) => {
-                console.log(error.message);
-            })
-    }
+    // const handleGoogleSignIn = () => {
+    //     signInWithPopup(auth, provider)
+    //         .then((result) => {
+    //             const user = result.user;
+    //             console.log("Google User: ", user);
+    //             navigate(`${location.state ? location.state : "/"}`);
+    //         })
+    //         .catch((error) => {
+    //             console.log(error.message);
+    //         })
+    // }
 
     return (
         <div>

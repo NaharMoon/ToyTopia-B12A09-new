@@ -6,15 +6,22 @@ import RegisterPage from "../pages/RegisterPage";
 import ProfilePage from "../pages/ProfilePage";
 import PrivateRoute from "./PrivateRoute";
 import ForgotPassword from "../pages/ForgotPassword";
+import AuthProvider from "../context/AuthProvider";
 
 const router = createBrowserRouter([
     {
         path: "/",
-        element: <HomeLayout></HomeLayout>,
+        element:
+            <AuthProvider>
+                <HomeLayout></HomeLayout>
+            </AuthProvider>,
     },
     {
         path: "/auth",
-        element: <AuthLayout></AuthLayout>,
+        element:
+            <AuthProvider>
+                <AuthLayout></AuthLayout>
+            </AuthProvider>,
         children: [
             {
                 path: "/auth/login",
