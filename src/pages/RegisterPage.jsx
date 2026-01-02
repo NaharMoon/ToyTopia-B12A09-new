@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react';
 import { auth } from '../firebase/firebase.config';
+import { Link } from 'react-router';
 
 const RegisterPage = () => {
 
@@ -69,6 +70,16 @@ const RegisterPage = () => {
                         <form onSubmit={handleRegister} className="card-body">
                             <fieldset className="fieldset">
 
+                                {/* Name */}
+                                <label className="label">Name</label>
+                                <input
+                                    type="text"
+                                    className="input"
+                                    placeholder="Your Name"
+                                    name='name'
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                />
                                 {/* email */}
                                 <label className="label">Email</label>
                                 <input
@@ -78,6 +89,7 @@ const RegisterPage = () => {
                                     name='email'
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
+                                    required
                                 />
                                 {/* password */}
                                 <label className="label">Password</label>
@@ -97,8 +109,27 @@ const RegisterPage = () => {
                                     {showPassword ? "hide" : "show"}
                                 </button>
                                 {error && <p>{error}</p>}
-                                <div><a className="link link-hover">Forgot password?</a></div>
+
+                                {/* photoURL */}
+                                <label className="label">Photo URL</label>
+                                <input
+                                    type="text"
+                                    className="input"
+                                    placeholder="Photo URL"
+                                    name='photo'
+                                    // value={photoURL}
+                                    onChange={(e) => setPhotoURL(e.target.value)}
+                                />
+
                                 <button className="btn btn-neutral mt-4">Register</button>
+                                <p>Already have an account? <Link to={"/auth/login"}>Login</Link></p>
+                                <p>______________or continue with______________</p>
+                                <button
+                                    // onClick={handleGoogleSignIn}
+                                    className="btn btn-neutral mt-4"
+                                >
+                                    LogIn With Google
+                                </button>
                             </fieldset>
                         </form>
                     </div>
