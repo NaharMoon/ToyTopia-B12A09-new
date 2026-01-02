@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../firebase/firebase.config';
+import { toast, ToastContainer } from 'react-toastify';
 
 const ProfilePage = () => {
     const { userData, setUserData } = useContext(AuthContext);
@@ -27,6 +28,7 @@ const ProfilePage = () => {
                     displayName: auth.currentUser.displayName,
                     photoURL: auth.currentUser.photoURL,
                 });
+                toast.success("Profile Updated.");
                 console.log("Profile Updated.");
             })
             .catch((error) => {
@@ -50,7 +52,7 @@ const ProfilePage = () => {
                 <form onSubmit={handleUpdateProfile} className="card-body">
                     <fieldset className="fieldset">
 
-                        {/* email */}
+                        {/* Name */}
                         <label className="label">Name:</label>
                         <input
                             type="text"
@@ -60,7 +62,7 @@ const ProfilePage = () => {
                             value={name}
                             onChange={(e) => setName(e.target.value)}
                         />
-                        {/* password */}
+                        {/* photoURL */}
                         <label className="label">Photo URL:</label>
                         <input
                             type="text"
@@ -69,7 +71,6 @@ const ProfilePage = () => {
                             name='photo'
                             value={photoURL}
                             onChange={(e) => setPhotoURL(e.target.value)}
-                            required
                         />
 
                         <button className="btn btn-neutral mt-4">Update</button>
