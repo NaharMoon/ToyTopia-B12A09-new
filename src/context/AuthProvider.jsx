@@ -11,17 +11,17 @@ const AuthProvider = ({ children }) => {
     const location = useLocation();
     const [userData, setUserData] = useState('');
     const [loading, setLoading] = useState(true);
-    console.log("User Data: ", userData);
+    // console.log("User Data: ", userData);
 
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
-                console.log("User Found: ", user);
+                // console.log("User Found: ", user);
                 setUserData(user);
                 setLoading(false);
             }
             else {
-                console.log("User not Found");
+                // console.log("User not Found");
                 setLoading(false);
             }
         })
@@ -49,11 +49,11 @@ const AuthProvider = ({ children }) => {
         signInWithPopup(auth, provider)
             .then((result) => {
                 const user = result.user;
-                console.log("Google User: ", user);
+                // console.log("Google User: ", user);
                 navigate(`${location.state ? location.state : "/"}`);
             })
             .catch((error) => {
-                console.log(error.message);
+                // console.log(error.message);
             })
     };
 

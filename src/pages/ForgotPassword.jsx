@@ -7,7 +7,7 @@ const ForgotPassword = () => {
     
     const [searchParams] = useSearchParams();
     const [email,setEmail] = useState('');
-    console.log(email);
+    // console.log(email);
 
      useEffect(()=>{
         const fillEmail = searchParams.get("email") || "";
@@ -19,7 +19,7 @@ const ForgotPassword = () => {
         e.preventDefault();
         sendPasswordResetEmail(auth,email)
         .then(() => {
-            console.log("Password reset email sent. Check your email: ",email);
+            // console.log("Password reset email sent. Check your email: ",email);
             window.location.href = "https://mail.google.com";
         })
         .catch((error) => {

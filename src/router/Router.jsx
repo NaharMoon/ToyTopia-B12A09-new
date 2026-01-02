@@ -7,6 +7,9 @@ import ProfilePage from "../pages/ProfilePage";
 import PrivateRoute from "./PrivateRoute";
 import ForgotPassword from "../pages/ForgotPassword";
 import AuthProvider from "../context/AuthProvider";
+import HomePage from "../pages/HomePage";
+import ToyDetailsPage from "../pages/ToyDetailsPage";
+import AllToysPage from "../pages/AllToysPage";
 
 const router = createBrowserRouter([
     {
@@ -15,6 +18,27 @@ const router = createBrowserRouter([
             <AuthProvider>
                 <HomeLayout></HomeLayout>
             </AuthProvider>,
+
+        children: [
+            {
+                path: "",
+                element: <HomePage></HomePage>,
+                loader: () => fetch("/data.json"),
+            },
+            {
+                path: "/all-toys",
+                element: <AllToysPage></AllToysPage>,
+                loader: () => fetch("/data.json"),
+            },
+            {
+                path: "/toy-details/:id",
+                element:
+                    <PrivateRoute>
+                        <ToyDetailsPage></ToyDetailsPage>
+                    </PrivateRoute>,
+                loader: () => fetch("/data.json"),
+            },
+        ]
     },
     {
         path: "/auth",

@@ -8,27 +8,27 @@ const LoginPage = () => {
     const { handleGoogleSignIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
-    console.log(location);
+    // console.log(location);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const userData = {
         email,
         password,
     }
-    console.log(userData);
+    // console.log(userData);
 
 
     const handleLogin = (e) => {
         e.preventDefault();
-        console.log("Login form submitted successfully");
+        // console.log("Login form submitted successfully");
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log("Email: ", email, "\nPassword: ", password);
+        // console.log("Email: ", email, "\nPassword: ", password);
 
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 const user = result.user;
-                console.log("Login successed: ", user);
+                // console.log("Login successed: ", user);
                 navigate(`${location.state ? location.state : "/"}`)
             })
             .catch((error) => {

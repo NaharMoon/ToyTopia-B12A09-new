@@ -7,7 +7,7 @@ import { AuthContext } from '../context/AuthContext';
 const RegisterPage = () => {
     
     const { handleGoogleSignIn, navigate, location } = useContext(AuthContext);
-    console.log(location);
+    // console.log(location);
     const [name, setName] = useState('');
     const [photoURL, setPhotoURL] = useState('');
     const [email, setEmail] = useState('');
@@ -23,7 +23,7 @@ const RegisterPage = () => {
         displayName: name,
         photoURL: photoURL,
     }
-    console.log("UserInfo: ", userinfo, "\nProfile: ", profile);
+    // console.log("UserInfo: ", userinfo, "\nProfile: ", profile);
 
     const handlePasswordOnChange = (e) => {
         const value = e.target.value;
@@ -45,10 +45,10 @@ const RegisterPage = () => {
 
     const handleRegister = (e) => {
         e.preventDefault();
-        console.log("Register form submitted successfully");
+        // console.log("Register form submitted successfully");
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log("Email: ", email, "\nPassword: ", password);
+        // console.log("Email: ", email, "\nPassword: ", password);
 
         if (error) {
             alert("Password must contain uppercase, lowercase and at least 6 characters");
@@ -58,7 +58,7 @@ const RegisterPage = () => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 const user = result.user;
-                console.log("Register successed: ", user);
+                // console.log("Register successed: ", user);
                 navigate(`${location.state ? location.state : "/"}`);
             })
             .catch((error) => {

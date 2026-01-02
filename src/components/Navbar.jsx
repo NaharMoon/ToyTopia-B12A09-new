@@ -8,12 +8,12 @@ import { AuthContext } from '../context/AuthContext';
 const Navbar = () => {
 
     const {userData,setUserData} = useContext(AuthContext);
-    console.log(userData);
+    // console.log(userData);
 
     const handleLogOut = () => {
         signOut(auth)
             .then(() => {
-                console.log("Sign-out Successfull.");
+                // console.log("Sign-out Successfull.");
                 setUserData('');
             })
             .catch((error) => {
@@ -30,6 +30,7 @@ const Navbar = () => {
                     <ul
                         tabIndex="-1"
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li><Link to={"/all-toys"}>All Toys</Link></li>
                         <li><Link to={"/auth/login"}>Login</Link></li>
                         <li><Link to={"/auth/register"}>Register</Link></li>
                         <li><Link to={"/auth/profile"}>Profile</Link></li>
@@ -39,6 +40,7 @@ const Navbar = () => {
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
+                    <li><Link to={"/all-toys"}>All Toys</Link></li>
                     <li><Link to={"/auth/login"}>Login</Link></li>
                     <li><Link to={"/auth/register"}>Register</Link></li>
                     <li><Link to={"/auth/profile"}>profile</Link></li>

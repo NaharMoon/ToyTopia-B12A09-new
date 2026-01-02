@@ -9,14 +9,14 @@ const ProfilePage = () => {
     const [name, setName] = useState('');
     const [photoURL, setPhotoURL] = useState('');
     const user = auth.currentUser;
-    console.log(user);
+    // console.log(user);
 
     const profile = {
         displayName: name,
         photoURL: photoURL,
     }
-    console.log(profile);
-    console.log(userData);
+    // console.log(profile);
+    // console.log(userData);
 
     const handleUpdateProfile = (e) => {
         e.preventDefault();
@@ -29,7 +29,7 @@ const ProfilePage = () => {
                     photoURL: auth.currentUser.photoURL,
                 });
                 toast.success("Profile Updated.");
-                console.log("Profile Updated.");
+                // console.log("Profile Updated.");
             })
             .catch((error) => {
                 console.log(error.message);
