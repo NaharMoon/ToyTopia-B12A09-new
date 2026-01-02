@@ -4,9 +4,9 @@ import { updateProfile } from 'firebase/auth';
 import { auth } from '../firebase/firebase.config';
 
 const ProfilePage = () => {
-    const { userData } = useContext(AuthContext);
-    const [name,setName] = useState('');
-    const [photoURL,setPhotoURL] = useState('');
+    const { userData, setUserData } = useContext(AuthContext);
+    const [name, setName] = useState('');
+    const [photoURL, setPhotoURL] = useState('');
     const user = auth.currentUser;
     console.log(user);
 
@@ -20,25 +20,30 @@ const ProfilePage = () => {
     const handleUpdateProfile = (e) => {
         e.preventDefault();
 
-        updateProfile(auth.currentUser,profile)
-        .then(() => {
-            console.log("Profile Updated.");
-        })
-        .catch((error) => {
-            console.log(error.message);
-        })
+        updateProfile(auth.currentUser, profile)
+            .then(() => {
+                setUserData({
+                    ...userData,
+                    displayName: auth.currentUser.displayName,
+                    photoURL: auth.currentUser.photoURL,
+                });
+                console.log("Profile Updated.");
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
     };
 
     return (
         <div>
             <h1>ProfilePage</h1>
             <h1>{userData.email}</h1>
-            <h1>{user.displayName? user.displayName : "Set Name"}</h1>
+            <h1>{user.displayName ? user.displayName : "Set Name"}</h1>
             {
-                user.photoURL? 
-                <img src={user.photoURL} alt="" />
-                :
-                <h1>Set Profile Picture</h1>
+                user.photoURL ?
+                    <img src={user.photoURL} alt="" />
+                    :
+                    <h1>Set Profile Picture</h1>
             }
 
             <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
@@ -66,7 +71,7 @@ const ProfilePage = () => {
                             onChange={(e) => setPhotoURL(e.target.value)}
                             required
                         />
-                        
+
                         <button className="btn btn-neutral mt-4">Update</button>
                     </fieldset>
                 </form>
