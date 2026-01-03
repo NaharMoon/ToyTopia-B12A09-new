@@ -4,14 +4,36 @@ import BannerSlider from '../components/BannerSlider';
 import BannerSlider2 from '../components/BannerSlider2';
 import BannerSlider3 from '../components/BannerSlider3';
 import BannerSlider4 from '../components/BannerSlider4';
+import Toys from '../components/Toys';
 
 const HomePage = () => {
-    const allData = useLoaderData();
+    const toys = useLoaderData();
     // console.log(allData);
     return (
         <div>
             <h1>HomePage</h1>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-10/12 mx-auto">
+            <Toys toys={toys}></Toys>
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            {/* <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 w-10/12 mx-auto">
                 {
                     allData.slice(0, 6).map((data => {
                         return (
@@ -27,7 +49,7 @@ const HomePage = () => {
                         );
                     }))
                 }
-            </div>
+            </div> */}
             
 
             <div className="max-w-6xl mx-auto px-4 mt-12">
