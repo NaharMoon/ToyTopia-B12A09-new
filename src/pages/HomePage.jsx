@@ -1,5 +1,9 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router';
+import BannerSlider from '../components/BannerSlider';
+import BannerSlider2 from '../components/BannerSlider2';
+import BannerSlider3 from '../components/BannerSlider3';
+import BannerSlider4 from '../components/BannerSlider4';
 
 const HomePage = () => {
     const allData = useLoaderData();
@@ -24,8 +28,31 @@ const HomePage = () => {
                     }))
                 }
             </div>
+            
+
+            <div className="max-w-6xl mx-auto px-4 mt-12">
+                <BannerSlider3 />
+                {/* Popular Toys + other sections */}
+            </div>
+            <div className="max-w-6xl mx-auto px-4 mt-12">
+                <BannerSlider4 />
+                {/* Popular Toys + other sections */}
+            </div>
+
+            {/* <div className="max-w-6xl mx-auto px-4 mt-12">
+                <BannerSlider />
+                Popular Toys + other sections
+            </div>
+            <div className="max-w-6xl mx-auto px-4 mt-12">
+                <BannerSlider2 />
+                Popular Toys + other sections
+            </div> */}
+
+            {/* <img src="https://i.ibb.co.com/5WzmK4WX/Slider.png" alt="" /> */}
+            {/* <img src="https://i.ibb.co.com/pv2pMSy6/hero.png" alt="hero"/> */}
         </div>
     );
 };
 
 export default HomePage;
+
