@@ -2,13 +2,14 @@ import React from 'react';
 import heroImg from '../assets/hero.png'
 import Fringe2 from './Fringe2';
 import FringeDesign from './FringeDesign';
+import BannerVector from './BannerVector';
 
 const HeroBanner = () => {
     return (
         <div className="mt-5">
-            {/* <div className="rotate-180 relative top-1.5">
-            <FringeDesign></FringeDesign>
-            </div> */}
+            <div className="">
+            {/* <BannerVector></BannerVector>  */}
+            </div>
             <div className='banner bg-[#bfe7f0] lg:flex '>
                 <div className="banner-left text-5xl text-baloo font-extrabold lg:w-1/2 min-h-75 p-8 lg:p-0 flex justify-center items-center relative">
                     <div className="absolute top-0 w-full">

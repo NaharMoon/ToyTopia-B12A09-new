@@ -76,6 +76,7 @@ const ProfilePage = () => {
                         <button className="btn btn-neutral mt-4">Update</button>
                     </fieldset>
                 </form>
+                
             </div>
         </div>
     );

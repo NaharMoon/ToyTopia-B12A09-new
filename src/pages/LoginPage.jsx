@@ -3,6 +3,9 @@ import React, { useContext, useState } from 'react';
 import { auth, } from '../firebase/firebase.config';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
+import teddyPinkBg from "../assets/teddyPinkBg.jpg";
+import FringeDesign from '../components/FringeDesign';
+import { FcGoogle } from 'react-icons/fc';
 
 const LoginPage = () => {
     const { handleGoogleSignIn } = useContext(AuthContext);
@@ -27,7 +30,7 @@ const LoginPage = () => {
 
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                const user = result.user;
+                // const user = result.user;
                 // console.log("Login successed: ", user);
                 navigate(`${location.state ? location.state : "/"}`)
             })
@@ -48,24 +51,28 @@ const LoginPage = () => {
     // }
 
     return (
-        <div>
-            <div className="hero bg-base-200 min-h-screen">
-                <div className="hero-content flex-col lg:flex-row-reverse">
-                    <div className="text-center lg:text-left w-1/2">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
-                        <p className="py-6">
-                            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                            quasi. In deleniti eaque aut repudiandae et a id nisi.
-                        </p>
-                    </div>
-                    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <div className='bg-[#f6c1cc]'
+            style={{
+                backgroundImage: `url("${teddyPinkBg}")`,
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+            }}
+        >
+            <div className="relative -top-3">
+                <FringeDesign></FringeDesign>
+            </div>
+            <div className="min-h-screen md:ml-50 pt-10 mx-6">
+                <h1 className="card-body text-secondary text-5xl font-bold pl-0">Please Login!</h1>
+                <div className="">
+                    <div className="card lg:bg-[#f6c1cc] md:w-100 shrink-0 shadow-2xl hover:scale-105 transition-all duration-500">
                         <form onSubmit={handleLogin} className="card-body">
                             <fieldset className="fieldset">
                                 {/* email */}
-                                <label className="label">Email</label>
+                                <label className="label font-black">Email</label>
                                 <input
                                     type="email"
-                                    className="input"
+                                    className="border-2 p-2 rounded-md border-secondary"
                                     placeholder="Email"
                                     name='email'
                                     value={email}
@@ -73,10 +80,10 @@ const LoginPage = () => {
                                     required
                                 />
                                 {/* password */}
-                                <label className="label">Password</label>
+                                <label className="label font-black">Password</label>
                                 <input
                                     type="password"
-                                    className="input"
+                                    className="border-2 p-2 rounded-md border-secondary"
                                     placeholder="Password"
                                     name='password'
                                     value={password}
@@ -91,17 +98,19 @@ const LoginPage = () => {
                                         Forgot password?
                                     </Link>
                                 </div>
-                                <button className="btn btn-neutral mt-4">Login</button>
-                                <p>Don't have an account? <Link to={"/auth/register"}>~Register</Link></p>
+                                <button className="btn btn-secondary mt-4 text-primary">Login</button>
+                                <p className='text-center'>Don't have an account? <Link to={"/auth/register"}> <span className='hover:link'>Register</span> </Link></p>
                             </fieldset>
                         </form>
-                        <p>___________or continue with___________</p>
-                        <button
-                            onClick={handleGoogleSignIn}
-                            className="btn btn-neutral mt-4"
-                        >
-                            LogIn With Google
-                        </button>
+                        <div className="card-body mt-0 pt-0">
+                            <p className='text-center'>___________or continue with___________</p>
+                            <button
+                                onClick={handleGoogleSignIn}
+                                className="btn btn-secondary mt-4 text-primary"
+                            >
+                               <FcGoogle /> LogIn With Google
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

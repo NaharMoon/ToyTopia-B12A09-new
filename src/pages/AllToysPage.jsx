@@ -2,13 +2,22 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router';
 import ToyCard from '../components/ToyCard';
 import ToysGrid from '../components/ToysGrid';
+import BannerVector from '../components/BannerVector';
 
 const AllToysPage = () => {
     const toys = useLoaderData();
     // console.log(alldata);
     return (
         <div className="">
-            <h1 className='font-bold text-secondary text-4xl text-center my-10'>Explore Our Awsome Toyes</h1>
+            <div className="relative -top-10">
+                <BannerVector>
+                </BannerVector>
+                <div className="flex justify-center lg:absolute bottom-0 w-full">
+                    <h1 className=' bottom-0 font-bold text-yellow-600 px-5 text-3xl lg:text-4xl text-center'>Explore Our Awsome Toyes</h1>
+                </div>
+                {/* !!!!!!!! ei div er design ta experimentally perfect hoiche!!!!!!!!!!!!!!! */}
+            </div>
+            {/* <div className="banner-vector h-70 w-full bg-secondary-content"></div> */}
             <ToysGrid toys={toys}></ToysGrid>
         </div>
     );

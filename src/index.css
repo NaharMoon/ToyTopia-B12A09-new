@@ -63,5 +63,10 @@ body {
 .text-baloo {
     font-family: 'Baloo Bhaina',sans-serif;
 }
+.banner-vector{
+    background-image: url("/src/assets/vector\ banner1.png");
+    height: 600px;
+    background-size: contain;
+}
 
 

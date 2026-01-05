@@ -3,9 +3,15 @@ import React, { useContext, useState } from 'react';
 import { auth } from '../firebase/firebase.config';
 import { Link } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
+import teddyPinkBg from "../assets/teddyPinkBg.jpg";
+import FringeDesign from '../components/FringeDesign';
+import { FcGoogle } from 'react-icons/fc';
+import { PiEyeClosed, PiEyeDuotone } from 'react-icons/pi';
+import { FaEye } from 'react-icons/fa';
+import { VscEye } from 'react-icons/vsc';
 
 const RegisterPage = () => {
-    
+
     const { handleGoogleSignIn, navigate, location } = useContext(AuthContext);
     // console.log(location);
     const [name, setName] = useState('');
@@ -69,17 +75,23 @@ const RegisterPage = () => {
     };
 
     return (
-        <div>
-            <div className="hero bg-base-200 min-h-screen">
-                <div className="hero-content flex-col lg:flex-row">
-                    <div className="text-center lg:text-left w-1/2">
-                        <h1 className="text-5xl font-bold">Register now!</h1>
-                        <p className="py-6">
-                            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-                            quasi. In deleniti eaque aut repudiandae et a id nisi.
-                        </p>
-                    </div>
-                    <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
+        <div className='bg-[#f6c1cc]'
+            style={{
+                backgroundImage: `url("${teddyPinkBg}")`,
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+            }}
+        >
+            <div className="relative -top-3">
+                <FringeDesign></FringeDesign>
+            </div>
+            <div className="min-h-screen md:ml-50 pt-10 mx-6 pb-6">
+                <h1 className="card-body text-secondary text-5xl font-bold pl-0">Get in touch!</h1>
+                <div className="">
+                    <div className="card lg:bg-[#f6c1cc] md:w-100 max-w-sm shrink-0 shadow-2xl 
+                    hover:scale-105 transition-all duration-500
+                    hover:shadow-[0_20px_60px_rgba(246,193,204,0.6)]">
                         <form onSubmit={handleRegister} className="card-body">
                             <fieldset className="fieldset">
 
@@ -87,7 +99,7 @@ const RegisterPage = () => {
                                 <label className="label">Name</label>
                                 <input
                                     type="text"
-                                    className="input"
+                                    className="border-2 p-2 rounded-md border-secondary"
                                     placeholder="Your Name"
                                     name='name'
                                     value={name}
@@ -97,7 +109,7 @@ const RegisterPage = () => {
                                 <label className="label">Email</label>
                                 <input
                                     type="email"
-                                    className="input"
+                                    className="border-2 p-2 rounded-md border-secondary"
                                     placeholder="Email"
                                     name='email'
                                     value={email}
@@ -106,47 +118,53 @@ const RegisterPage = () => {
                                 />
                                 {/* password */}
                                 <label className="label">Password</label>
-                                <input
-                                    type={showPassword ? "text" : "password"}
-                                    className="input"
-                                    placeholder="Password"
-                                    name='password'
-                                    value={password}
-                                    onChange={handlePasswordOnChange}
-                                    required
-                                />
-                                <button
-                                    type='button'
-                                    className='btn'
-                                    onClick={() => setShowPassword(!showPassword)}>
-                                    {showPassword ? "hide" : "show"}
-                                </button>
-                                {error && <p>{error}</p>}
+                                <div className="relative">
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        className="border-2 p-2 rounded-md border-secondary w-full"
+                                        placeholder="Password"
+                                        name='password'
+                                        value={password}
+                                        onChange={handlePasswordOnChange}
+                                        required
+                                    />
+                                    <button
+                                        type='button'
+                                        className='absolute right-4 top-3'
+                                        onClick={() => setShowPassword(!showPassword)}>
+                                        {showPassword ? <PiEyeClosed size={16} /> : <VscEye size={16} />}
+                                    </button>
+                                    {error && <p>{error}</p>}
+                                </div>
+
 
                                 {/* photoURL */}
                                 <label className="label">Photo URL</label>
                                 <input
                                     type="text"
-                                    className="input"
+                                    className="border-2 p-2 rounded-md border-secondary"
                                     placeholder="Photo URL"
                                     name='photo'
                                     value={photoURL}
                                     onChange={(e) => setPhotoURL(e.target.value)}
                                 />
 
-                                <button className="btn btn-neutral mt-4">Register</button>
-                                <p>Already have an account? <Link to={"/auth/login"}>~Login</Link></p>
+                                <button className="btn btn-neutral mt-4 text-primary">Register</button>
+                                <p className='text-center'>Already have an account? <Link to={"/auth/login"}><span className='hover:link'>Login</span></Link></p>
 
                             </fieldset>
                         </form>
-                        <p>___________or continue with___________</p>
-                        <button
-                            onClick={handleGoogleSignIn}
-                            className="btn btn-neutral mt-4"
-                        >
-                            LogIn With Google
-                        </button>
+                        <div className="card-body mt-0 pt-0">
+                            <p className='text-center'>___________or continue with___________</p>
+                            <button
+                                onClick={handleGoogleSignIn}
+                                className="btn btn-neutral mt-4 text-primary"
+                            >
+                                <FcGoogle size={22} /> LogIn With Google
+                            </button>
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>

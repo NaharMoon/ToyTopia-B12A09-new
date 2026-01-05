@@ -14,9 +14,7 @@ const HomePage = () => {
     // console.log(allData);
     return (
         <div>
-            
             <HeroBanner></HeroBanner>
-            <MiniBanner></MiniBanner>
             <Toys toys={toys}></Toys>
 
 
