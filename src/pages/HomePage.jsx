@@ -5,13 +5,18 @@ import BannerSlider2 from '../components/BannerSlider2';
 import BannerSlider3 from '../components/BannerSlider3';
 import BannerSlider4 from '../components/BannerSlider4';
 import Toys from '../components/Toys';
+import HeroBanner from '../components/HeroBanner';
+import Fringe2 from '../components/Fringe2';
+import MiniBanner from '../components/MiniBanner';
 
 const HomePage = () => {
     const toys = useLoaderData();
     // console.log(allData);
     return (
         <div>
-            <h1>HomePage</h1>
+            
+            <HeroBanner></HeroBanner>
+            <MiniBanner></MiniBanner>
             <Toys toys={toys}></Toys>
 
 
@@ -52,14 +57,14 @@ const HomePage = () => {
             </div> */}
             
 
-            <div className="max-w-6xl mx-auto px-4 mt-12">
+            {/* <div className="max-w-6xl mx-auto px-4 mt-12">
                 <BannerSlider3 />
-                {/* Popular Toys + other sections */}
+                Popular Toys + other sections
             </div>
             <div className="max-w-6xl mx-auto px-4 mt-12">
                 <BannerSlider4 />
-                {/* Popular Toys + other sections */}
-            </div>
+                Popular Toys + other sections
+            </div> */}
 
             {/* <div className="max-w-6xl mx-auto px-4 mt-12">
                 <BannerSlider />

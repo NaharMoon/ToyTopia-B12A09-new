@@ -1,33 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLoaderData, useParams } from 'react-router';
+import ToyDetails from '../components/ToyDetails';
+import TryNowForm from '../components/TryNowForm';
 
 const ToyDetailsPage = () => {
-    const alldata = useLoaderData();
-    const {id} = useParams();
-    const [dataDetails,setDataDetails] = useState([]);
+    const toys = useLoaderData();
+    const { id } = useParams();
+    const [filteredToy, setFilteredToy] = useState([]);
     // console.log("Params Id: ",id,"\nAll Data: ",alldata,"\nDetails: ",dataDetails);
 
-    useEffect(()=>{
-        const filteredData = alldata.filter(data => data.toyId == id)
-        setDataDetails(filteredData);
-    },[alldata,id]);
-    
+    useEffect(() => {
+        const filteredToy = toys.filter(toy => toy.toyId == id)
+        setFilteredToy(filteredToy);
+    }, [toys, id]);
+
     return (
         <div>
-            <h1>ToyDetailsPage</h1>
             <div>
                 {
-                    dataDetails.map((data) => {
+                    filteredToy.map((toy) => {
                         return (
-                            <div className='border-2 border-pink-400 '>
-                                <p>{data.toyName}</p>
-                                <p>{data.subCategory}</p>
-                                <button className='btn'>
-                                    <Link to={`/all-toys`}>
-                                        See All Toys
-                                    </Link>
-                                </button>
-                            </div>
+                            <ToyDetails toy={toy}>
+                                <TryNowForm></TryNowForm>
+                            </ToyDetails>
                         )
                     })
                 }

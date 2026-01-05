@@ -2,10 +2,66 @@
 @plugin "daisyui"{
     themes: light --default;
 }
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400..800&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+* {
+    font-family: "Nunito", sans-serif;
+    font-family: 'Baloo Bhaina',sans-serif;
+    font-family: 'Baloo Bhaina 2',sans-serif;
+    /* font-size: 22px; */
+}
+
+/* 🌈 ToyTopia custom light theme colors */
+:root {
+    --color-primary: #E6947A;
+     --color-accent-content: #403f3f;
+    /* 🩶 Main text / headings / navbar */
+    --color-secondary: #CDECF4;
+    /* ❤️ Buttons / highlights / CTA */
+    --color-accent: #706f6f;
+    /* ⚫ Subtext / hover text / neutral */
+    --color-base-100: #ffffff;
+    /* 🤍 Main background */
+    --color-base-200: #f3f3f3;
+    /* 🩵 Section alternate background */
+    --color-base-300: #e7e7e7;
+    /* 💨 Footer / border color */
+    --color-info: #7bcbc4;
+    /* 🩵 Optional mint accent */
+    --color-warning: #ffd166;
+    /* 💛 Offer badges / highlights */
+    --color-success: #3ab795;
+    /* --color-success: #CDECF4; */
+    /* ✅ Success alert */
+    --color-error: #e63946;
+    /* 🔴 Error alert */
+}
+
+
 @plugin "daisyui/theme" {
   name: "light";
   default: true;
-  --color-primary: pink;
-  --color-secondary: teal;
+  --color-neutral: #bfe7f0;
+  --color-primary: #E6947A;
+  --color-primary-content: #e6937a5e;
+  --color-secondary: #CDECF4;
+  --color-secondary-content: #CDECF4;
+  --color-accent: oklch(65% 0.25 160);
+  --color-accent-content: #403f3f;
 }
+
+body {
+    background-color: var(--color-base-100);
+    color: var( --color-accent-content);
+    font-family: "Poppins", sans-serif;
+}
+.active {
+    @apply bg-[#7bcbc497] text-white
+    /* bg-[#95f2ea97] */
+
+}
+.text-baloo {
+    font-family: 'Baloo Bhaina',sans-serif;
+}
+
 
