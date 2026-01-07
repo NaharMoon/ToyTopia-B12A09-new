@@ -1,12 +1,13 @@
 import { signOut } from 'firebase/auth';
 import React, { useContext } from 'react';
-import { Link, NavLink } from 'react-router';
+import { Link, NavLink, useNavigate } from 'react-router';
 // import { AuthContext } from './context/AuthContext';
 import { auth } from '../firebase/firebase.config';
 import { AuthContext } from '../context/AuthContext';
 import userIcon from '../assets/user-icon.png'
 
 const Navbar = ({children}) => {
+    const navigate = useNavigate();
     const links = <>
         <li><NavLink to={"/"}>Home     </NavLink></li>
         <li><NavLink to={"/all-toys"}>All Toys     </NavLink></li>
@@ -23,6 +24,7 @@ const Navbar = ({children}) => {
             .then(() => {
                 // console.log("Sign-out Successfull.");
                 setUserData('');
+                navigate(`${location.state ? location.state : "/"}`)
             })
             .catch((error) => {
                 console.log(error.message);

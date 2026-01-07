@@ -3,6 +3,12 @@ import { AuthContext } from '../context/AuthContext';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../firebase/firebase.config';
 import { toast, ToastContainer } from 'react-toastify';
+import decorCardBrown from "../assets/decorCardBrown.jpg";
+import decorCardBlue from "../assets/decorCardBlue.jpg";
+import profileBg1 from '../assets/profileBg1.jpg';
+import profileBg2Vec from "../assets/profileBg2Vec.png";
+import teddyPinkBg from "../assets/teddyPinkBg.jpg"
+import FringeDesign from '../components/FringeDesign';
 
 const ProfilePage = () => {
     const { userData, setUserData } = useContext(AuthContext);
@@ -37,46 +43,80 @@ const ProfilePage = () => {
     };
 
     return (
-        <div>
-            <h1>ProfilePage</h1>
-            <h1>{userData.email}</h1>
-            <h1>{user.displayName ? user.displayName : "Set Name"}</h1>
-            {
-                user.photoURL ?
-                    <img src={user.photoURL} alt="" />
-                    :
-                    <h1>Set Profile Picture</h1>
-            }
+        <div className="bg-[#f6c1cc]">
+            <div className='pb-10'
+                style={{
+                    backgroundImage: `url("${teddyPinkBg}")`,
+                    backgroundSize: "contain",
+                    backgroundPosition: "center",
+                    backgroundRepeat: "no-repeat",
+                }}
+            >
+                <div className="relative -top-3">
+                    <FringeDesign></FringeDesign>
+                </div>
+                <div className="min-h-screen md:ml-50 mx-6">
+                    <div className="max-w-100"
+                    // style={{
+                    //     backgroundImage: `url("${profileBg1}")`,
+                    //     backgroundSize: "contain",
+                    //     // backgroundPosition: "center",
+                    //     backgroundRepeat: "no-repeat",
+                    // }}
+                    >
+                        <div className="relative flex justify-center top-12 hover:scale-105 transition-all duration-500">
+                            <div className="flex justify-center rounded-full border-3 border-secondary h-40 w-40">
+                                {
+                                    user.photoURL ?
+                                        <img className='rounded-full border-3 m-1 p-1 bg-white border-secondary-content' src={user.photoURL} alt="" />
+                                        :
+                                        <h1>Set Profile Picture</h1>
+                                }
+                            </div>
+                            {/* <img src={profileBg2Vec} alt="" /> */}
+                        </div>
+                        <div className="bg-primary/50 rounded-t-2xl pt-12 bp-1 md:w-100 w-85 px-4 hover:scale-105 transition-all duration-500">
+                            <h1 className='text-xl font-bold text-center text-base-300'>{userData.email}</h1>
+                            <h1 className='text-xl font-bold text-center text-base-300'>{user.displayName ? user.displayName : "Set Name"}</h1>
+                        </div>
+                    </div>
+                    <div className="md:w-100 w-85 px-4 h-100 shadow-2xl rounded-b-2xl hover:scale-105 transition-all duration-500 flex justify-center"
+                        style={{
+                            backgroundImage: `url("${decorCardBrown}")`,
+                            backgroundSize: "cover",
+                            backgroundPosition: "center",
+                            backgroundRepeat: "no-repeat",
+                        }}
+                    >
+                        <form onSubmit={handleUpdateProfile} className="card-body md:pt-30 p-7 md:w-100">
+                            <fieldset className="fieldset">
 
-            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                <form onSubmit={handleUpdateProfile} className="card-body">
-                    <fieldset className="fieldset">
+                                {/* Name */}
+                                <label className="label font-black">Name:</label>
+                                <input
+                                    type="text"
+                                    className="border-2 p-2 rounded-md border-primary-content"
+                                    placeholder="Your Name"
+                                    name='name'
+                                    value={name}
+                                    onChange={(e) => setName(e.target.value)}
+                                />
+                                {/* photoURL */}
+                                <label className="label font-black">Photo URL:</label>
+                                <input
+                                    type="text"
+                                    className="border-2 p-2 rounded-md border-primary-content"
+                                    placeholder="Photo URL"
+                                    name='photo'
+                                    value={photoURL}
+                                    onChange={(e) => setPhotoURL(e.target.value)}
+                                />
+                                <button className="btn btn-primary mt-4 text-white">Update</button>
+                            </fieldset>
+                        </form>
 
-                        {/* Name */}
-                        <label className="label">Name:</label>
-                        <input
-                            type="text"
-                            className="input"
-                            placeholder="Your Name"
-                            name='name'
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                        />
-                        {/* photoURL */}
-                        <label className="label">Photo URL:</label>
-                        <input
-                            type="text"
-                            className="input"
-                            placeholder="Photo URL"
-                            name='photo'
-                            value={photoURL}
-                            onChange={(e) => setPhotoURL(e.target.value)}
-                        />
-
-                        <button className="btn btn-neutral mt-4">Update</button>
-                    </fieldset>
-                </form>
-                
+                    </div>
+                </div>
             </div>
         </div>
     );
