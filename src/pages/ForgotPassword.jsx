@@ -2,51 +2,65 @@ import { sendPasswordResetEmail } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router';
 import { auth } from '../firebase/firebase.config';
+import teddyPinkBg from "../assets/teddyPinkBg.jpg"
 
 const ForgotPassword = () => {
-    
+
     const [searchParams] = useSearchParams();
-    const [email,setEmail] = useState('');
+    const [email, setEmail] = useState('');
     // console.log(email);
 
-     useEffect(()=>{
+    useEffect(() => {
         const fillEmail = searchParams.get("email") || "";
-        if(fillEmail){
+        if (fillEmail) {
             setEmail(fillEmail);
         }
-     },[searchParams]);
+    }, [searchParams]);
     const handleResetPassword = (e) => {
         e.preventDefault();
-        sendPasswordResetEmail(auth,email)
-        .then(() => {
-            // console.log("Password reset email sent. Check your email: ",email);
-            window.location.href = "https://mail.google.com";
-        })
-        .catch((error) => {
-            console.log(error.message);
-        })
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                // console.log("Password reset email sent. Check your email: ",email);
+                window.location.href = "https://mail.google.com";
+            })
+            .catch((error) => {
+                console.log(error.message);
+            })
     }
     return (
-        <div>
-            <h1>ForgotPassword</h1>
-            <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl">
-                <form onSubmit={handleResetPassword} className="card-body">
-                    <fieldset className="fieldset">
-                        {/* email */}
-                        <label className="label">Email</label>
-                        <input
-                            type="email"
-                            className="input"
-                            placeholder="Email"
-                            name='email'
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            required
-                        />
-                        <button className="btn btn-neutral mt-4">Reset</button>
-                        <p>Back to <Link to={"/auth/login"}>~Login</Link></p>
-                    </fieldset>
-                </form>
+        <div
+            className='bg-[#f6c1cc]'
+            style={{
+                backgroundImage: `url("${teddyPinkBg}")`,
+                backgroundSize: "contain",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+            }}
+        >
+            <div className="min-h-screen md:ml-50 pt-10 mx-6">
+                <h1 className="card-body text-secondary text-5xl font-bold pl-0">Forgot Password? </h1>
+                <div className="card lg:bg-[#f6c1cc] md:w-100 shrink-0 shadow-2xl hover:scale-105 transition-all duration-500">
+                    <form onSubmit={handleResetPassword} className="card-body">
+                        <fieldset className="fieldset">
+                            {/* email */}
+                            <label className="label font-black">Email</label>
+                            <input
+                                type="email"
+                                className="border-2 p-2 rounded-md border-secondary"
+                                placeholder="Email"
+                                name='email'
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                                required
+                            />
+                            <button className="btn btn-secondary mt-4 text-primary">Reset</button>
+                            <div ><Link to={"/auth/login"}
+                                className="link link-hover"
+                            >
+                                Back to Login</Link></div>
+                        </fieldset>
+                    </form>
+                </div>
             </div>
         </div>
     );
