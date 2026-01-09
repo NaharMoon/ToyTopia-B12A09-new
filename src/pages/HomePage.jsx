@@ -8,6 +8,8 @@ import Toys from '../components/Toys';
 import HeroBanner from '../components/HeroBanner';
 import Fringe2 from '../components/Fringe2';
 import MiniBanner from '../components/MiniBanner';
+import ToyBrands from '../components/ToyBrands';
+import Collections from '../components/Collections';
 
 const HomePage = () => {
     const toys = useLoaderData();
@@ -15,7 +17,11 @@ const HomePage = () => {
     return (
         <div>
             <HeroBanner></HeroBanner>
+            <Collections></Collections>
+            <BannerSlider3></BannerSlider3>
             <Toys toys={toys}></Toys>
+            {/* <BannerSlider4></BannerSlider4> */}
+            <ToyBrands></ToyBrands>
 
 
 

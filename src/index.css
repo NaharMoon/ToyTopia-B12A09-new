@@ -46,13 +46,13 @@
   --color-primary-content: #e6937a5e;
   --color-secondary: #CDECF4;
   --color-secondary-content: #CDECF4;
-  --color-accent: oklch(65% 0.25 160);
+  --color-accent:  #706f6f;
   --color-accent-content: #403f3f;
 }
 
 body {
     background-color: var(--color-base-100);
-    color: var( --color-accent-content);
+    color: var( --color-accent);
     font-family: "Poppins", sans-serif;
 }
 .active {

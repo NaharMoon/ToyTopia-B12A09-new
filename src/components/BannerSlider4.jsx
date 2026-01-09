@@ -25,15 +25,16 @@ const slides = [
 
 export default function BannerSlider() {
   return (
-    <div className="max-w-4xl mx-auto">
-      <Swiper
+    <div className="w-11/12 mx-auto">
+      <div className="w-8/12 mx-auto">
+        <Swiper
         modules={[Autoplay, Pagination, EffectCards]}
         effect="cards"
         grabCursor
         loop
         autoplay={{ delay: 2200, disableOnInteraction: false }}
         pagination={{ clickable: true }}
-        className="h-[240px] sm:h-[360px] lg:h-[420px]"
+        className="h-40 md:h-70 lg:h-100"
       >
         {slides.map((s) => (
           <SwiperSlide key={s.id}>
@@ -41,6 +42,7 @@ export default function BannerSlider() {
           </SwiperSlide>
         ))}
       </Swiper>
+      </div>
     </div>
   );
 }

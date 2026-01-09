@@ -15,8 +15,9 @@ const HeroBanner = () => {
                     <div className="absolute top-0 w-full">
                         <Fringe2></Fringe2>
                     </div>
-                    <div className='space-y-4 text-center transition-all duration-700 ease-out delay-150 text-baloo font-extrabold text-white text-shadow-primary'>
-                        <p>All New Best Latest<br />Toy Collections</p>
+                    <div className='space-y-4 transition-all duration-700 ease-out delay-150 text-white text-shadow-primary'>
+                        <p className=' text-baloo text-accent'>All New Best Latest</p>
+                        <p className="">Toy Collections</p>
                         <button className='btn border-none rounded-full bg-primary text-white'>Shop Now</button>
                     </div>
                     <div className="absolute w-full rotate-180 bottom-0">

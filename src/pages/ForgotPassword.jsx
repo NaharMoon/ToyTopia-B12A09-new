@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useSearchParams } from 'react-router';
 import { auth } from '../firebase/firebase.config';
 import teddyPinkBg from "../assets/teddyPinkBg.jpg"
+import FringeDesign from '../components/FringeDesign';
 
 const ForgotPassword = () => {
 
@@ -37,6 +38,9 @@ const ForgotPassword = () => {
                 backgroundRepeat: "no-repeat",
             }}
         >
+            <div className="relative -top-3">
+                <FringeDesign></FringeDesign>
+            </div>
             <div className="min-h-screen md:ml-50 pt-10 mx-6">
                 <h1 className="card-body text-secondary text-5xl font-bold pl-0">Forgot Password? </h1>
                 <div className="card lg:bg-[#f6c1cc] md:w-100 shrink-0 shadow-2xl hover:scale-105 transition-all duration-500">
