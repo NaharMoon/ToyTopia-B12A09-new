@@ -4,6 +4,7 @@ import ToyDetails from '../components/ToyDetails';
 import TryNowForm from '../components/TryNowForm';
 
 const ToyDetailsPage = () => {
+
     const toys = useLoaderData();
     const { id } = useParams();
     const [filteredToy, setFilteredToy] = useState([]);

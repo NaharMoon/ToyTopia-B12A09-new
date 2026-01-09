@@ -1,6 +1,7 @@
 import { FaArrowAltCircleLeft, FaStar } from "react-icons/fa";
 import leftImage from "../assets/Rectangle 15 - Copy.png"
 import { Link } from "react-router";
+import { useEffect } from "react";
 const ToyDetailsLayout = ({ toy, children }) => {
   const {
     toyName,
@@ -13,6 +14,9 @@ const ToyDetailsLayout = ({ toy, children }) => {
     pictureURL,
     subCategory,
   } = toy || {};
+  useEffect(() => {
+        document.title = `ToyTopia | ${toyName}`;
+    }, [toyName]);
 
   const stars = Array.from({ length: 5 }, (_, i) => i + 1);
   const starFillCount = Math.round(Number(rating || 0));

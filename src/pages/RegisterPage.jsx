@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { auth } from '../firebase/firebase.config';
 import { Link } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
@@ -11,6 +11,10 @@ import { FaEye } from 'react-icons/fa';
 import { VscEye } from 'react-icons/vsc';
 
 const RegisterPage = () => {
+    useEffect(() => {
+        document.title = "ToyTopia | Register";
+    }, []);
+
 
     const { handleGoogleSignIn, navigate, location } = useContext(AuthContext);
     // console.log(location);

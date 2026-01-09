@@ -6,6 +6,10 @@ import teddyPinkBg from "../assets/teddyPinkBg.jpg"
 import FringeDesign from '../components/FringeDesign';
 
 const ForgotPassword = () => {
+    useEffect(() => {
+        document.title = "ToyTopia | Forgot Password?";
+    }, []);
+
 
     const [searchParams] = useSearchParams();
     const [email, setEmail] = useState('');

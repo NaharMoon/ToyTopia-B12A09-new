@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../firebase/firebase.config';
@@ -11,6 +11,10 @@ import teddyPinkBg from "../assets/teddyPinkBg.jpg"
 import FringeDesign from '../components/FringeDesign';
 
 const ProfilePage = () => {
+    useEffect(() => {
+        document.title = "ToyTopia | Profile";
+    }, []);
+
     const { userData, setUserData } = useContext(AuthContext);
     const [name, setName] = useState('');
     const [photoURL, setPhotoURL] = useState('');

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router';
 import BannerSlider from '../components/BannerSlider';
 import BannerSlider2 from '../components/BannerSlider2';
@@ -12,6 +12,10 @@ import ToyBrands from '../components/ToyBrands';
 import Collections from '../components/Collections';
 
 const HomePage = () => {
+    useEffect(() => {
+        document.title = "ToyTopia | Home";
+    }, []);
+
     const toys = useLoaderData();
     // console.log(allData);
     return (
@@ -27,7 +31,7 @@ const HomePage = () => {
 
 
 
- 
+
 
 
 
@@ -59,7 +63,7 @@ const HomePage = () => {
                     }))
                 }
             </div> */}
-            
+
 
             {/* <div className="max-w-6xl mx-auto px-4 mt-12">
                 <BannerSlider3 />

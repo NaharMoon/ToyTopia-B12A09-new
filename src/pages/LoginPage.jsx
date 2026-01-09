@@ -1,5 +1,5 @@
 import { signInWithEmailAndPassword, } from 'firebase/auth';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { auth, } from '../firebase/firebase.config';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../context/AuthContext';
@@ -8,6 +8,10 @@ import FringeDesign from '../components/FringeDesign';
 import { FcGoogle } from 'react-icons/fc';
 
 const LoginPage = () => {
+    useEffect(() => {
+        document.title = "ToyTopia | Login";
+    }, []);
+
     const { handleGoogleSignIn } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
@@ -108,7 +112,7 @@ const LoginPage = () => {
                                 onClick={handleGoogleSignIn}
                                 className="btn btn-secondary mt-4 text-primary"
                             >
-                               <FcGoogle /> LogIn With Google
+                                <FcGoogle /> LogIn With Google
                             </button>
                         </div>
                     </div>
