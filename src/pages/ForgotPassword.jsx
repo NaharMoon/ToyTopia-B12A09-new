@@ -54,7 +54,7 @@ const ForgotPassword = () => {
                             <label className="label font-black">Email</label>
                             <input
                                 type="email"
-                                className="border-2 p-2 rounded-md border-secondary"
+                                className="border-2 p-2 rounded-md border-secondary focus:outline-2 focus:outline-accent"
                                 placeholder="Email"
                                 name='email'
                                 value={email}

@@ -6,7 +6,7 @@ import { auth } from '../firebase/firebase.config';
 import { AuthContext } from '../context/AuthContext';
 import userIcon from '../assets/user-icon.png'
 
-const Navbar = ({children}) => {
+const Navbar = ({ children }) => {
     const navigate = useNavigate();
     const links = <>
         <li><NavLink to={"/"}>Home     </NavLink></li>
@@ -17,7 +17,7 @@ const Navbar = ({children}) => {
     </>
 
     const { userData, setUserData } = useContext(AuthContext);
-    // console.log(userData);
+    console.log(userData);
 
     const handleLogOut = () => {
         signOut(auth)
@@ -32,7 +32,7 @@ const Navbar = ({children}) => {
     }
     return (
         <div className="">
-            <div className="navbar shadow-none pb-0 bg-secondary  lg:pr-20 lg:pl-20">
+            <div className="navbar shadow-none pb-0 bg-secondary  lg:pr-20 lg:pl-20 z-10">
                 {/* rounded-tl-3xl rounded-tr-3xl */}
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -45,16 +45,31 @@ const Navbar = ({children}) => {
                             {links}
                         </ul>
                     </div>
-                    <Link to={"/"} className="btn btn-ghost text-3xl font-extrabold text-baloo text-primary">ToyTopia</Link>
+                    <Link to={"/"} className="btn btn-ghost text-3xl font-extrabold text-baloo bg-linear-to-l from-primary to-orange-400 bg-clip-text text-transparent ">ToyTopia</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 font-bold">
                         {links}
                     </ul>
                 </div>
-                <div className="navbar-end gap-3">
+                <div className="navbar-end gap-3 group">
+                    <div className="relative">
                     <img className='w-10 rounded-full'
-                        src={userData ? userData.photoURL : userIcon} alt="user icon" title='Name:' />
+                        src={userData.photoURL ? userData.photoURL : userIcon} alt="user icon" />
+                    {/* invisible user info */}
+                    <div className="absolute p-2 bg-primary-content rounded-xl text-xs z-10 -left-10 invisible group-hover:visible">
+                        {
+                            userData ?
+                                (<>
+                                    <p className="">{userData?.displayName && userData.displayName}</p>
+                                    <p className="">{userData?.email && userData.email}</p>
+                                </>)
+                                :
+                                <pre className="">Please Login or Register.</pre>
+                        }
+                    </div>
+
+                    </div>
                     {
                         !userData ?
                             <Link to={"/auth/login"} className='btn btn-primary text-white border-none rounded-full pl-6 pr-6'>Login</Link>
@@ -64,7 +79,7 @@ const Navbar = ({children}) => {
                 </div>
             </div>
             <div className="relative -top-2">
-            {children}
+                {children}
             </div>
         </div>
     );

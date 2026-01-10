@@ -59,7 +59,7 @@ const ProfilePage = () => {
                 <div className="relative -top-3">
                     <FringeDesign></FringeDesign>
                 </div>
-                <div className="min-h-screen md:ml-50 mx-6">
+                <div className="min-h-screen md:ml-50 px-6 mx-auto">
                     <div className="max-w-100"
                     // style={{
                     //     backgroundImage: `url("${profileBg1}")`,
@@ -79,12 +79,12 @@ const ProfilePage = () => {
                             </div>
                             {/* <img src={profileBg2Vec} alt="" /> */}
                         </div>
-                        <div className="bg-primary/50 rounded-t-2xl pt-12 bp-1 md:w-100 w-85 px-4 hover:scale-105 transition-all duration-500">
+                        <div className="bg-primary/50 rounded-t-2xl pt-12 bp-1 md:w-100 w-75 px-4 hover:scale-105 transition-all duration-500">
                             <h1 className='text-xl font-bold text-center text-base-300'>{userData.email}</h1>
                             <h1 className='text-xl font-bold text-center text-base-300'>{user.displayName ? user.displayName : "Set Name"}</h1>
                         </div>
                     </div>
-                    <div className="md:w-100 w-85 px-4 h-100 shadow-2xl rounded-b-2xl hover:scale-105 transition-all duration-500 flex justify-center"
+                    <div className="md:w-100 w-75 px-4 h-100 shadow-2xl rounded-b-2xl hover:scale-105 transition-all duration-500 flex justify-center"
                         style={{
                             backgroundImage: `url("${decorCardBrown}")`,
                             backgroundSize: "cover",

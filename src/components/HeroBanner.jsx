@@ -8,17 +8,24 @@ const HeroBanner = () => {
     return (
         <div className="mt-5">
             <div className="">
-            {/* <BannerVector></BannerVector>  */}
+                {/* <BannerVector></BannerVector>  */}
             </div>
             <div className='banner bg-[#bfe7f0] lg:flex '>
-                <div className="banner-left text-5xl text-baloo font-extrabold lg:w-1/2 min-h-75 p-8 lg:p-0 flex justify-center items-center relative">
+                <div className="banner-left lg:w-1/2 min-h-75 p-8 lg:p-0 flex justify-center items-center relative">
                     <div className="absolute top-0 w-full">
                         <Fringe2></Fringe2>
                     </div>
-                    <div className='space-y-4 transition-all duration-700 ease-out delay-150 text-white text-shadow-primary'>
-                        <p className=' text-baloo text-accent'>All New Best Latest</p>
-                        <p className="">Toy Collections</p>
-                        <button className='btn border-none rounded-full bg-primary text-white'>Shop Now</button>
+                    <div className='space-y-4 md:pl-20 md:pr-15'>
+                        {/* <p className='text-4xl md:text-5xl text-orange-400 font-extrabold text-baloo'>Play • Learn • Grow</p> */}
+                        <h1 className="text-4xl md:text-6xl text-baloo font-extrabold bg-linear-to-r from-orange-400 via-sky-400 to-emerald-400 bg-clip-text text-transparent">
+                            Play · Learn · Grow
+                        </h1>
+
+                        <p className="text-sm md:text-xl text-[#53b3abfb]">
+                            {/*  text-[#53b3abfb] */}
+                            Discover safe, colorful, and educational toys designed to inspire creativity, imagination, and happy childhood moments.
+                        </p>
+                        <button className='btn border-none rounded-full bg-linear-to-tl from-primary to-orange-400 text-white lg:mt-6 hover:brightness-110'>Explore Collections</button>
                     </div>
                     <div className="absolute w-full rotate-180 bottom-0">
                         <Fringe2></Fringe2>
