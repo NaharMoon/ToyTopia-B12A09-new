@@ -6,6 +6,7 @@ import { AuthContext } from '../context/AuthContext';
 import teddyPinkBg from "../assets/teddyPinkBg.jpg";
 import FringeDesign from '../components/FringeDesign';
 import { FcGoogle } from 'react-icons/fc';
+import { toast } from 'react-toastify';
 
 const LoginPage = () => {
     useEffect(() => {
@@ -37,9 +38,11 @@ const LoginPage = () => {
                 // const user = result.user;
                 // console.log("Login successed: ", user);
                 navigate(`${location.state ? location.state : "/"}`)
+                toast.success("Login Successfull!");
             })
             .catch((error) => {
                 console.log(error.message);
+                toast.error(error.message);
             })
     }
     // const handleGoogleSignIn = () => {

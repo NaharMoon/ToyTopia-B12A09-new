@@ -9,6 +9,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { PiEyeClosed, PiEyeDuotone } from 'react-icons/pi';
 import { FaEye } from 'react-icons/fa';
 import { VscEye } from 'react-icons/vsc';
+import { toast } from 'react-toastify';
 
 const RegisterPage = () => {
     useEffect(() => {
@@ -70,9 +71,11 @@ const RegisterPage = () => {
                 const user = result.user;
                 // console.log("Register successed: ", user);
                 navigate(`${location.state ? location.state : "/"}`);
+                toast.success("Registration Successfull!");
             })
             .catch((error) => {
                 console.log(error.message);
+                toast.error(error.message);
             });
 
         // handleUpdateProfile(e,profile);
@@ -138,7 +141,7 @@ const RegisterPage = () => {
                                         onClick={() => setShowPassword(!showPassword)}>
                                         {showPassword ? <PiEyeClosed size={16} /> : <VscEye size={16} />}
                                     </button>
-                                    {error && <p>{error}</p>}
+                                    {error && <p className='text-error'>{error}</p>}
                                 </div>
 
 

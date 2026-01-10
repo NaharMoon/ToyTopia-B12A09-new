@@ -5,6 +5,7 @@ import { Link, NavLink, useNavigate } from 'react-router';
 import { auth } from '../firebase/firebase.config';
 import { AuthContext } from '../context/AuthContext';
 import userIcon from '../assets/user-icon.png'
+import { toast } from 'react-toastify';
 
 const Navbar = ({ children }) => {
     const navigate = useNavigate();
@@ -24,10 +25,12 @@ const Navbar = ({ children }) => {
             .then(() => {
                 // console.log("Sign-out Successfull.");
                 setUserData('');
-                navigate(`${location.state ? location.state : "/"}`)
+                navigate(`${location.state ? location.state : "/"}`);
+                toast("You have Logged Out!");
             })
             .catch((error) => {
                 console.log(error.message);
+                toast.error(error.message);
             })
     }
     return (

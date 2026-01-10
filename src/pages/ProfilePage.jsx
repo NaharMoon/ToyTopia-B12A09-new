@@ -38,11 +38,14 @@ const ProfilePage = () => {
                     displayName: auth.currentUser.displayName,
                     photoURL: auth.currentUser.photoURL,
                 });
+                setName("");
+                setPhotoURL('');
                 toast.success("Profile Updated.");
                 // console.log("Profile Updated.");
             })
             .catch((error) => {
                 console.log(error.message);
+                toast.error(error.message);
             })
     };
 
@@ -81,7 +84,7 @@ const ProfilePage = () => {
                         </div>
                         <div className="bg-primary/50 rounded-t-2xl pt-12 bp-1 md:w-100 w-75 px-4 hover:scale-105 transition-all duration-500">
                             <h1 className='text-xl font-bold text-center text-base-300'>{userData.email}</h1>
-                            <h1 className='text-xl font-bold text-center text-base-300'>{user.displayName ? user.displayName : "Set Name"}</h1>
+                            <h1 className='text-xl font-bold text-center text-base-300'>{user.displayName ? user.displayName : "User Name"}</h1>
                         </div>
                     </div>
                     <div className="md:w-100 w-75 px-4 h-100 shadow-2xl rounded-b-2xl hover:scale-105 transition-all duration-500 flex justify-center"

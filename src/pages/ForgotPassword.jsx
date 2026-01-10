@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router';
 import { auth } from '../firebase/firebase.config';
 import teddyPinkBg from "../assets/teddyPinkBg.jpg"
 import FringeDesign from '../components/FringeDesign';
+import { toast } from 'react-toastify';
 
 const ForgotPassword = () => {
     useEffect(() => {
@@ -26,10 +27,12 @@ const ForgotPassword = () => {
         sendPasswordResetEmail(auth, email)
             .then(() => {
                 // console.log("Password reset email sent. Check your email: ",email);
+                toast.success("Password reset email sent. Check your email: ",email);
                 window.location.href = "https://mail.google.com";
             })
             .catch((error) => {
                 console.log(error.message);
+                toast.error(error.message);
             })
     }
     return (
