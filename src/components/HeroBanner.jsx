@@ -15,7 +15,7 @@ const HeroBanner = () => {
                     <div className="absolute top-0 w-full">
                         <Fringe2></Fringe2>
                     </div>
-                    <div className='space-y-4 md:pl-20 md:pr-15'>
+                    <div className='space-y-4 md:pl-25 md:pr-15'>
                         {/* <p className='text-4xl md:text-5xl text-orange-400 font-extrabold text-baloo'>Play • Learn • Grow</p> */}
                         <h1 className="text-4xl md:text-6xl text-baloo font-extrabold bg-linear-to-r from-orange-400 via-sky-400 to-emerald-400 bg-clip-text text-transparent">
                             Play · Learn · Grow
@@ -25,7 +25,9 @@ const HeroBanner = () => {
                             {/*  text-[#53b3abfb] */}
                             Discover safe, colorful, and educational toys designed to inspire creativity, imagination, and happy childhood moments.
                         </p>
+                        <a href="#popular-toys">
                         <button className='btn border-none rounded-full bg-linear-to-tl from-primary to-orange-400 text-white lg:mt-6 hover:brightness-110'>Explore Collections</button>
+                        </a>
                     </div>
                     <div className="absolute w-full rotate-180 bottom-0">
                         <Fringe2></Fringe2>

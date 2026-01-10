@@ -55,6 +55,9 @@ body {
     color: var( --color-accent);
     font-family: "Poppins", sans-serif;
 }
+html{
+    scroll-behavior: smooth;
+}
 .active {
     @apply bg-[#7bcbc497] text-white
     /* bg-[#95f2ea97] */
