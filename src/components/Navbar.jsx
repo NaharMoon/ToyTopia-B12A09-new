@@ -31,8 +31,8 @@ const Navbar = ({ children }) => {
             })
     }
     return (
-        <div className="">
-            <div className="navbar shadow-none pb-0 bg-secondary  lg:pr-20 lg:pl-20 z-10">
+        <div className="sticky top-0 h-fit z-10">
+            <div className="navbar shadow-none pb-0 bg-secondary  lg:pr-20 lg:pl-20 z-10 ">
                 {/* rounded-tl-3xl rounded-tr-3xl */}
                 <div className="navbar-start">
                     <div className="dropdown">

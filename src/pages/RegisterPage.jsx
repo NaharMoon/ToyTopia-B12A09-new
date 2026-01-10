@@ -87,7 +87,7 @@ const RegisterPage = () => {
                 backgroundRepeat: "no-repeat",
             }}
         >
-            <div className="relative -top-3">
+            <div className="sticky top-16 h-fit -translate-y-3">
                 <FringeDesign></FringeDesign>
             </div>
             <div className="min-h-screen md:ml-50 pt-10 mx-6 pb-6">
