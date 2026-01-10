@@ -1,16 +1,38 @@
-# React + Vite
+# ToyTopia
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ToyTopia is a responsive baby toy store web application where users can explore toys, view details, and access protected profile features after login.
 
-Currently, two official plugins are available:
+## Live Website
+- Live Link: https://toytopia-b12a09-ea1f3.firebaseapp.com
+- Live Link: https://toytopia-b12a09-ea1f3.web.app (alternative link)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Purpose
+Build a modern, responsive toy store website using React, React Router, Tailwind CSS, and Firebase Authentication.
 
-## React Compiler
+## Key Features
+- Responsive UI for mobile, tablet, and desktop
+- Browse toys and view toy details
+- Firebase Authentication (Login/Register/Logout)
+- Protected routes (Private Route)
+- Dynamic page titles for each route
+- Smooth scroll from Hero section to Popular Toys section
+- Meaningful footer and user info hover card in navbar
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies Used
+- React
+- React Router
+- Tailwind CSS
+- DaisyUI
+- Firebase
 
-## Expanding the ESLint configuration
+## NPM Packages Used
+- react-router
+- firebase
+- react-toastify
+- swiper
+- react icons
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Installation & Run Locally
+```bash
+npm install
+npm run dev
