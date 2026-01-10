@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLoaderData, useParams } from 'react-router';
+import {useLoaderData, useParams } from 'react-router';
 import ToyDetails from '../components/ToyDetails';
 import TryNowForm from '../components/TryNowForm';
 

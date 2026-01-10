@@ -1,13 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router';
-import BannerSlider from '../components/BannerSlider';
-import BannerSlider2 from '../components/BannerSlider2';
 import BannerSlider3 from '../components/BannerSlider3';
 import BannerSlider4 from '../components/BannerSlider4';
 import Toys from '../components/Toys';
 import HeroBanner from '../components/HeroBanner';
-import Fringe2 from '../components/Fringe2';
-import MiniBanner from '../components/MiniBanner';
 import ToyBrands from '../components/ToyBrands';
 import Collections from '../components/Collections';
 

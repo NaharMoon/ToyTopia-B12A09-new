@@ -16,7 +16,6 @@ const slides = [
   { id: 6, img: "https://i.ibb.co.com/5WzmK4WX/Slider.png" },
   { id: 7, img: `${slideImg2}` },
   { id: 8, img: "https://i.ibb.co.com/5WzmK4WX/Slider.png" },
-  // { id: 8, img: "https://i.ibb.co.com/pv2pMSy6/hero.png" },
 ];
 
 export default function BannerSlider() {

@@ -1,7 +1,6 @@
 import { signOut } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router';
-// import { AuthContext } from './context/AuthContext';
 import { auth } from '../firebase/firebase.config';
 import { AuthContext } from '../context/AuthContext';
 import userIcon from '../assets/user-icon.png'
@@ -12,13 +11,11 @@ const Navbar = ({ children }) => {
     const links = <>
         <li><NavLink to={"/"}>Home     </NavLink></li>
         <li><NavLink to={"/all-toys"}>All Toys     </NavLink></li>
-        {/* <li><NavLink to={"/auth/login"}>Login      </NavLink></li>
-        <li><NavLink to={"/auth/register"}>Register</NavLink></li> */}
         <li><NavLink to={"/auth/profile"}>Profile  </NavLink></li>
     </>
 
     const { userData, setUserData } = useContext(AuthContext);
-    console.log(userData);
+    // console.log(userData);
 
     const handleLogOut = () => {
         signOut(auth)

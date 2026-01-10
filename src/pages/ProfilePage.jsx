@@ -2,11 +2,8 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../context/AuthContext';
 import { updateProfile } from 'firebase/auth';
 import { auth } from '../firebase/firebase.config';
-import { toast, ToastContainer } from 'react-toastify';
+import { toast } from 'react-toastify';
 import decorCardBrown from "../assets/decorCardBrown.jpg";
-import decorCardBlue from "../assets/decorCardBlue.jpg";
-import profileBg1 from '../assets/profileBg1.jpg';
-import profileBg2Vec from "../assets/profileBg2Vec.png";
 import teddyPinkBg from "../assets/teddyPinkBg.jpg"
 import FringeDesign from '../components/FringeDesign';
 

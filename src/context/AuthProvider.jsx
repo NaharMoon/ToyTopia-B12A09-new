@@ -3,7 +3,6 @@ import React, { useEffect, useState } from 'react';
 import { AuthContext } from './AuthContext';
 import { auth, provider } from '../firebase/firebase.config';
 import { useLocation, useNavigate } from 'react-router';
-// import { toast } from 'react-toastify';
 
 const AuthProvider = ({ children }) => {
 
@@ -53,7 +52,7 @@ const AuthProvider = ({ children }) => {
                 navigate(`${location.state ? location.state : "/"}`);
             })
             .catch((error) => {
-                // console.log(error.message);
+                console.log(error.message);
             })
     };
 

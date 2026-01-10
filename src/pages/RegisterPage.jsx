@@ -6,8 +6,7 @@ import { AuthContext } from '../context/AuthContext';
 import teddyPinkBg from "../assets/teddyPinkBg.jpg";
 import FringeDesign from '../components/FringeDesign';
 import { FcGoogle } from 'react-icons/fc';
-import { PiEyeClosed, PiEyeDuotone } from 'react-icons/pi';
-import { FaEye } from 'react-icons/fa';
+import { PiEyeClosed } from 'react-icons/pi';
 import { VscEye } from 'react-icons/vsc';
 import { toast } from 'react-toastify';
 

@@ -18,9 +18,6 @@ const ToyCard = ({ toy }) => {
         <div className="card bg-base-100 border border-base-200 rounded-2xl hover:shadow-xl transition-all duration-500 hover:scale-105">
             {/* image area */}
             <figure className="relative p-4">
-                {/* <span className="badge badge-error badge-sm text-white absolute left-4 top-4">
-                    SALE
-                </span> */}
 
                 {/* right top icons */}
                 <div className="absolute right-4 top-4 flex flex-col gap-2">

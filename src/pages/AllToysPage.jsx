@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router';
-import ToyCard from '../components/ToyCard';
 import ToysGrid from '../components/ToysGrid';
 import BannerVector from '../components/BannerVector';
 
@@ -21,7 +20,6 @@ const AllToysPage = () => {
                 </div>
                 {/* !!!!!!!! ei div er design ta experimentally perfect hoiche!!!!!!!!!!!!!!! */}
             </div>
-            {/* <div className="banner-vector h-70 w-full bg-secondary-content"></div> */}
             <ToysGrid toys={toys}></ToysGrid>
         </div>
     );
