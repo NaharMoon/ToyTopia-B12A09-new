@@ -10,6 +10,7 @@ import AuthProvider from "../context/AuthProvider";
 import HomePage from "../pages/HomePage";
 import ToyDetailsPage from "../pages/ToyDetailsPage";
 import AllToysPage from "../pages/AllToysPage";
+import ErrorPage from "../pages/ErrorPage";
 
 const router = createBrowserRouter([
     {
@@ -73,7 +74,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/*",
-        element: <>Error Page</>
+        element: <ErrorPage></ErrorPage>
     },
 ]);
 export default router;

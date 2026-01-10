@@ -7,7 +7,7 @@ import categoryImg5 from "../assets/catagoryImg5.png"
 
 const Collections = () => {
     return (
-        <div className='w-10/12 mx-auto mt-16 mb-8'>
+        <div className='w-10/12 mx-auto mt-25 mb-8'>
             <h1 className='text-center font-bold text-3xl md:text-4xl lg:text-5xl text-primary'>Find the Perfect Toy</h1>
             <p className='text-center font-bold mt-2'>Our Collections</p>
             <div className="mx-auto flex justify-around flex-wrap gap-5  mt-8">

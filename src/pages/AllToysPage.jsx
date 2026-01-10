@@ -17,7 +17,7 @@ const AllToysPage = () => {
                 <BannerVector>
                 </BannerVector>
                 <div className="flex justify-center lg:absolute bottom-0 w-full">
-                    <h1 className=' bottom-0 font-bold text-yellow-600 px-5 text-3xl lg:text-4xl text-center'>Explore Our Awsome Toyes</h1>
+                    <h1 className=' bottom-0 font-bold text-baloo text-yellow-600 px-5 text-4xl lg:text-5xl text-center'>Explore Our Awsome Toyes</h1>
                 </div>
                 {/* !!!!!!!! ei div er design ta experimentally perfect hoiche!!!!!!!!!!!!!!! */}
             </div>

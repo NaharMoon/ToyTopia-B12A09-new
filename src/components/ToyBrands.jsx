@@ -6,7 +6,7 @@ import brand4 from '../assets/Brand-4-Barlri.png'
 
 const ToyBrands = () => {
     return (
-        <div className='w-10/12 mx-auto mt-16 mb-8'>
+        <div className='w-10/12 mx-auto mt-25 mb-10'>
             <h1 className='text-center font-bold text-baloo text-4xl md:text-5xl text-primary'>Toy Brands</h1>
             <div className='grid grid-cols-2 lg:grid-cols-4 gap-10 mt-12'>
                 <div className="brand-card scale-100 hover:scale-105 duration-700 border-4 border-primary rounded-4xl p-7 flex justify-center items-center">
